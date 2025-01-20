@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    ulimits:
+      nproc: 65535
+      core: 0
+    ports:
+      - 9999
+    entrypoint: /etc/start.sh
+    restart: unless-stopped
+    network_mode: bridge
